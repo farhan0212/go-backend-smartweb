@@ -31,9 +31,9 @@ jobs:
     - uses: actions/checkout@v4
     - name: Push to Docker Hub
       run: |
-        docker build -t farhan0212/go_backend .
+        docker build -t farhan0212/go-backend-smartweb .
         echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-        docker push farhan0212/go_backend
+        docker push farhan0212/go-backend-smartweb
 
     - name: Deploy to digital ocean
       uses: appleboy/ssh-action@v1.2.2
