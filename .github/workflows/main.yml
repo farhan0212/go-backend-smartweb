@@ -38,10 +38,9 @@ jobs:
     - name: Deploy to digital ocean
       uses: appleboy/ssh-action@v1.2.2
       with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USERNAME }}
-        key: ${{ secrets.VPS_SSH_KEY }}
+        host: ${{ secrets.VPS_HOST }} 
+        username: ${{ secrets.VPS_USERNAME }} 
+        key: ${{ secrets.VPS_SSH_KEY }} 
+        passphrase: ${{ secrets.VPS_SSH_PASSPHRASE }}
         script: |
-          cd /home/farhan/crud/
-          docker compose pull
-          docker compose up -d --build
+          bash /home/farhan/script/deployment.sh
